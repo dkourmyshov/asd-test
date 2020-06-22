@@ -1,0 +1,8 @@
+@import "./common.scss";
+
+.server-time {
+    box-sizing: border-box;
+    width: 304px;
+    max-width: 304px;
+    @extend .virtual-main;
+}

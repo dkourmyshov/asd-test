@@ -1,0 +1,50 @@
+.virtual-control {
+    border: 0;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+  
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
+.virtual-control:enabled {
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;  
+}
+
+.virtual-main {
+    color: #fff;
+	padding: 25px 20px 0;
+	//margin: 20px 20px 0;	
+    border-radius: 3px;
+
+    .field {
+        width: 100%;
+
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 2rem;
+    }    
+
+    button {
+        @extend .virtual-control;
+        background-color: #00B9BC;
+        color: #eee;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+    button:focus:enabled, button:hover:enabled {
+        background-color: #197071;
+        cursor: pointer;
+    }
+
+    button:disabled {
+        background-color: #aecece;
+    }
+}

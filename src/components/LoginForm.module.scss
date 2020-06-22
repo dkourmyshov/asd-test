@@ -1,0 +1,60 @@
+@import "_common.scss";
+
+.login-form {
+    @extend .virtual-main;    
+
+    input {
+        @extend .virtual-control;
+    }
+
+    .username:before {
+        content: '\f007';
+        font: 14px fontawesome;
+        color: #5b5b5b;
+    }
+
+    .password:before {
+        content: '\f023';
+        font: 14px fontawesome;
+        color: #5b5b5b;
+    }
+
+    label {
+        border-radius: 0.25rem;
+        padding: 1rem;
+    }
+
+    label {
+        background-color: #222222;
+        color: #3A3F44; //TODO: DRY
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        box-sizing: border-box;
+        width: 51px;
+        min-width: 51px;
+    }
+
+    input[type="text"], input[type="password"] {
+        background-color: #ffffff;
+        color: #3A3F44; //TODO: DRY
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+
+    input[type="text"]:focus, input[type="text"]:hover, input[type="password"]:focus, input[type="password"]:hover {
+        background-color: #eeeeee;
+    }
+
+    .hidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+}
