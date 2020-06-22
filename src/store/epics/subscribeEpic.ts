@@ -57,7 +57,7 @@ const subscribeToSocketEpic: InstaEpic = action$ => action$.pipe(
             }) 
         )
 
-        const openAction$ = open$.pipe(map(() => actions.socketOpened(message$, close$)))
+        const openAction$ = open$.pipe(map(() => actions.socketOpened({message$, close$})))
         const closeAction$ = close$.pipe(map(event => actions.socketClosed(event.code)))
 
         return merge(messageAction$, openAction$, closeAction$) 

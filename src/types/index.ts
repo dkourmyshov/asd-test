@@ -10,13 +10,17 @@ import { Dispatch } from 'redux'
 import actions from '../store/actions'
 
 
-export type ServerTimeMessage = {server_time: number}
-
 export type httpError = ({name: 'AjaxError', status: number, response: {description?: string}} | {}) & Error
 
 /* store - actions */
 export type Action = ActionType<typeof actions>
 
+export type ServerTimeMessage = {server_time: number}
+
+export interface SocketInfo {
+    message$: WebSocketSubject<ServerTimeMessage>,
+    close$: Subject<CloseEvent>
+}
 /* store - reducers */
 export type SocketStatus = 'closed' | 'opening' | 'opened'
 
@@ -25,10 +29,7 @@ export interface State {
     jwtToken: string | null,
 
     socketOpened: SocketStatus,
-    socket: {
-        message$: WebSocketSubject<ServerTimeMessage>,
-        close$: Subject<CloseEvent>
-    } | null,
+    socket: SocketInfo | null,
 
     serverTime: number | null,
     

@@ -1,4 +1,4 @@
-import { getType } from 'typesafe-actions'
+import { getType, isActionOf } from 'typesafe-actions'
 import produce from 'immer'
 import actions from "../actions"
 import { State, Action } from '../../types'
@@ -18,6 +18,9 @@ const initialState: State = {
 }
 
 export default (state = initialState, action: Action) => {
+    if (!isActionOf(actions.socketMessage)(action)) { console.log(new Date(), action) }
+    //console.log(new Date(), action)
+
     return produce(state, draft => {
         switch (action.type) {
             case getType(actions.updateUsername):
